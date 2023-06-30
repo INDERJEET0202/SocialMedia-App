@@ -45,6 +45,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+});
 
 /* ROUTES  WITH FILES*/
 app.post("/auth/register", upload.single("picture"), register);
@@ -56,7 +59,7 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
 /* MONGOOSE SETUP */
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 6000
 
 mongoose.set('strictQuery', true);
 
